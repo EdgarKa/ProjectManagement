@@ -7,8 +7,8 @@ import java.util.Date;
 @Table(name = "task")
 public class Task {
     @Id
-    @Column(name = "task_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "task_id")
     private long taskId;
 
     @Column(name = "task_name")
