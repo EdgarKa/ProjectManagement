@@ -25,10 +25,12 @@ public class ProjectService {
     }
 
     public Project getProject(Long projectId) {
+        findProjectById(projectId);
         return projectRepository.findById(projectId).get();
     }
 
     public void changeProject(Project project, Long projectId) {
+        findProjectById(projectId);
         projectRepository.save(project);
     }
 
@@ -36,8 +38,8 @@ public class ProjectService {
         projectRepository.deleteById(projectId);
     }
 
-    private Project findProjectById(Long projectId) {
-        return projectRepository.findById(projectId).orElseThrow(() ->
+    private void findProjectById(Long projectId) {
+        projectRepository.findById(projectId).orElseThrow(() ->
                 new NoSuchElementException("Project " + projectId + " was not found"));
     }
 }

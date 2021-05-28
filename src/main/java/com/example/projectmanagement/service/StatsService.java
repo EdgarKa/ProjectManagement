@@ -22,7 +22,7 @@ public class StatsService {
 
     public String getAll() {
 
-        String stat = "Projects: " + projectRepository.count() +
+        return "Projects: " + projectRepository.count() +
                 "\nTasks: " + taskRepository.count() +
                 "\nEasy ones: " + getDiff(TaskDifficulty.Easy) +
                 "\nMedium ones: " + getDiff(TaskDifficulty.Medium) +
@@ -30,7 +30,6 @@ public class StatsService {
                 "\nTasks to do: " + getStatus(TaskStatus.ToDo) +
                 "\nTasks in progress: " + getStatus(TaskStatus.Doing) +
                 "\nTasks done: " + getStatus(TaskStatus.Done);
-        return stat;
     }
 
     private int getDiff(TaskDifficulty diff) {

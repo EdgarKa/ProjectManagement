@@ -23,6 +23,12 @@ public class TaskController {
         return task.getTaskId();
     }
 
+    @PostMapping("/addtask/{projectid}")
+    public Long addTaskToProject(@RequestBody Task task, @PathVariable("projectid") Long projectId) {
+        taskService.addTaskToProject(task, projectId);
+        return task.getTaskId();
+    }
+
     @GetMapping
     public List<Task> getAllTasks() { return taskService.getAllTasks(); }
 

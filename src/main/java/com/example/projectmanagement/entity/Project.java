@@ -18,7 +18,7 @@ public class Project {
     @Column(name = "project_description")
     private String projectDescription;
 
-    @OneToMany
+    @OneToMany(cascade = {CascadeType.ALL})
     @JoinTable(name = "project_task", joinColumns
             = @JoinColumn(name = "project_id",
     referencedColumnName = "project_id"),
